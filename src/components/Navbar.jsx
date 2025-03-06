@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
 import { useWindowScroll } from "react-use";
+import gsap from "gsap";
 
 
 const Navbar = () => {
@@ -28,6 +29,14 @@ useEffect(() => {
     }
     setLastScrollY(currentScrollY);
 }, [currentScrollY,lastScrollY]);
+
+useEffect(() => {
+    gsap.to(navContainerRef,{
+        y: isNavVisible ? 0 : -100,
+        opacity: isNavVisible ? 1 : 0,
+        duration: 0.2,
+    })
+}, [isNavVisible]);
 
 const toggleAudio = () => {
     setIsAudioPlaying((prevIsAudioPlaying) => !prevIsAudioPlaying);
