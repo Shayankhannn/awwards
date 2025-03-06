@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRef } from "react"
 import Button from "./Button"
 import { TiLocationArrow } from "react-icons/ti"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import { ScrollTrigger } from "gsap/all"
 
+gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
 
     const [currentIndex,setCurrentIndex] = useState(1)
@@ -26,6 +28,13 @@ const Hero = () => {
     }
 
     const getVideosrc = (index) => `videos/hero-${index}.mp4`
+
+    useEffect(() => {
+        if (loadedVideo === totalVideos - 1) {
+          setIsLoading(false);
+        }
+      }, [loadedVideo]);
+
 
     // gsap
     
@@ -62,6 +71,18 @@ const Hero = () => {
         borderRadius: "0% 0% 40% 10%",
       });
 
+      gsap.from("#video-frame", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        borderRadius: "0% 0% 0% 0%",
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: "#video-frame",
+          start: "center center",
+          end: "bottom center",
+          scrub: true,
+        },
+      });
+
     });
 
 
@@ -69,6 +90,15 @@ const Hero = () => {
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
+      {isloading && (
+        <div className="absolute flex-center h-dvh w-screen overflow-hidden bg-violet-50 z-[100] ">
+          <div className="three-body">
+            <div className="three-body__dot"/>
+            <div className="three-body__dot"/>
+            <div className="three-body__dot"/>
+          </div>
+        </div>
+      )}
         <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-x-hidden rounded-lg bg-blue-75" >
             <div >
                 <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
