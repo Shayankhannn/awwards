@@ -1,6 +1,7 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import AnimatedTitle from "./AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,9 +36,8 @@ useGSAP(()=>{
             <h2 className="font-general text-sm uppercase md:text-[10px]">
                 WelCome
             </h2>
-            <div className="mt-5 text-center text-4xl uppercase leading-0.8 md:text-[6rem]">
-                Disc<b>o</b>ver The World&apos;s <br/> <b>L</b>argest shared adventure
-            </div>
+            <AnimatedTitle title="Disc<b>o</b>ver The World&apos;s <br/> <b>L</b>argest shared adventure"/>
+            
             <div className="about-subtext">
             <p>The Game of Games begins—your life, now an epic MMORPG</p>
             <p className="text-gray-500">unites every player from countless games and platforms, both
