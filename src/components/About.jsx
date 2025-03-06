@@ -14,7 +14,7 @@ useGSAP(()=>{
     const clipAnimation = gsap.timeline({
         scrollTrigger: {
             trigger: "#clip",
-            start: "center center",
+            start: "center top",
             end: "+=800 center",
             scrub: 0.5,
             pin: true,
