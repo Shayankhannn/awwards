@@ -36,7 +36,7 @@ useGSAP(()=>{
             <h2 className="font-general text-sm uppercase md:text-[10px]">
                 WelCome
             </h2>
-            <AnimatedTitle title="Disc<b>o</b>ver The World&apos;s <br/> <b>L</b>argest shared adventure"/>
+            <AnimatedTitle containerClass="mt-5 !text-black text-center" title="Disc<b>o</b>ver The World&apos;s <br/> <b>L</b>argest shared adventure"/>
             
             <div className="about-subtext">
             <p>The Game of Games begins—your life, now an epic MMORPG</p>
