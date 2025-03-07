@@ -15,7 +15,7 @@ useGSAP(()=>{
         scrollTrigger: {
             trigger: "#clip",
             start: "center center",
-            end: "+=800 center",
+            end: "+=600 center",
             scrub: 0.5,
             pin: true,
             pinSpacing: true,
