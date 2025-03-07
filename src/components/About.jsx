@@ -17,7 +17,7 @@ useGSAP(()=>{
             start: "+=100 center",
             end: "+=800 center",
             scrub: 0.5,
-            // pin: true,
+            pin: true,
             pinSpacing: true,
             markers: true, 
         }
