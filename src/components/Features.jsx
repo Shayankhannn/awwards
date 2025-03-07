@@ -1,3 +1,4 @@
+import { TiLocationArrow } from "react-icons/ti"
 
 
 
@@ -58,8 +59,33 @@ const Features = () => {
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, sequi."
 
         />
-
     </div>
+
+    <div className="bento-tilt_1 row-span-1 me-14 md:col-span-1 md:me-0 ">
+        <BentoCard 
+        src="videos/feature-4.mp4"
+        title={<>az<b>u</b>re</>}
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, sequi."
+
+        />
+    </div>
+
+    <div className="bento-tilt_2">
+    <div className="flex size-full md:flex-row flex-col justify-between p-5 bg-violet-300">
+    <h1 className="bento-title special-font max-w-64">M<b>o</b>re Co<b>m</b>ing S<b>o</b>on</h1>
+    <TiLocationArrow className="m-5 scale-[5] self-end"/>
+    </div>
+    </div>
+    <div className="bento-tilt_2">
+        <video 
+        src="videos/feature-5.mp4"
+        loop
+        muted
+        autoPlay
+        className="object-cover object-center size-full"
+        />
+    </div>
+
     </div>
 </div>
     </section>
