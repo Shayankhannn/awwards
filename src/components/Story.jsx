@@ -1,11 +1,22 @@
 import { useRef } from "react";
 import AnimatedTitle from "./AnimatedTitle";
+import gsap from "gsap";
+import RoundedCorners from "./RoundedCorners";
+import Button from "./Button";
 
 const Story = () => {
     
     const frameRef = useRef(null);
     const handleMouseLeave = ()=>{
+      const element = frameRef.current;
 
+      gsap.to(element, {
+        rotateX: 0,
+        rotateY: 0,
+        duration: 0.3,
+       
+        ease: "power1.inOut",
+    });
     };
 
     const handleMouseMove = (e)=>{
@@ -20,6 +31,14 @@ const Story = () => {
 
         const rotateX = ((y - centerY)/centerY) * -10;
         const rotateY = ((x - centerX)/centerX) * -10;
+
+        gsap.to(element, {
+            rotateX: rotateX,
+            rotateY: rotateY,
+            duration: 0.3,
+            transformPerspective: 500,
+            ease: "power1.inOut",
+        });
 
     };
   return (
@@ -48,8 +67,20 @@ const Story = () => {
                     onMouseMove={handleMouseMove} />
                 </div>
             </div>
+            <RoundedCorners/>
             </div>
         </div>
+
+        <div className="-mt-80 flex w-full justify-center md:mt-64 md:me-44 md:justify-end">
+        <div className="flex h-full w-fit flex-col items-center md:items-start">
+            <p className="mt-3 max-w-sm text-center font-circular-web text-violet-50 md:text-start">
+
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda provident doloremque.
+            </p>
+            <Button id="realm-button" title="Discover prolonge " containerClass="mt-5"/>
+        </div>
+        </div>
+
       </div>
     </section>
   );
